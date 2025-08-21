@@ -311,7 +311,7 @@ const AdminQRGenerator = ({
                     >
                       <QRCode
                         id="admin-qr-code"
-                        value={`${frontendUrl}/signin?session=${currentQRData.id}`}
+                        value={`${frontendUrl}/attendance-login?session=${currentQRData.id}`}
                         size={200}
                         level="M"
                         includeMargin={true}
