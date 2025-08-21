@@ -65,13 +65,17 @@ const AttendanceLogin = () => {
     setError("");
     try {
       const url = `${API_BASE_URL}/attendance/check?session=${sessionId}`;
+      console.log("Checking attendance with URL:", url);
       const response = await axios.post(url, formData, {
         withCredentials: true,
         headers: {
           "Content-Type": "application/json",
         },
       });
+      console.log("Attendance check response:", response);
       const result = response.data;
+      console.log("Attendance check result:", result);
+      Cookies.set("attendanceSession", sessionId, { expires: 1 }); // Store session
       Swal.fire({
         icon: "success",
         title: "Attendance Recorded",
